@@ -1,0 +1,42 @@
+@startuml
+class violationDIP.CarBad {
+- GasolineEngine engine
++ void turnOn()
+}
+
+
+interface correctedDIP.Engine {
+~ void start()
+}
+
+class correctedDIP.MainGood {
++ {static} void main(String[])
+}
+
+class correctedDIP.Car {
+- Engine engine
++ void turnOn()
+}
+
+
+class violationDIP.GasolineEngine {
++ void start()
+}
+
+class violationDIP.MainBad {
++ {static} void main(String[])
+}
+
+class correctedDIP.ElectricEngine {
++ void start()
+}
+
+class correctedDIP.GasolineEngine {
++ void start()
+}
+
+
+
+correctedDIP.Engine <|.. correctedDIP.ElectricEngine
+correctedDIP.Engine <|.. correctedDIP.GasolineEngine
+@enduml
